@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(80, 162, 235);
+    overflow: hidden;
+    font-family: 'Libre Franklin', sans-serif;
+    color: white;
+}
+
+#message {
+    left: 0;
+    line-height: 200px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+    font-size: 50px;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
