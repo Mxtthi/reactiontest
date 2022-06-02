@@ -27,19 +27,19 @@ class Game {
     }
 
     startTest() {
-        game.timeout = game.getRandomInt(1000, 5000);
         document.body.style.backgroundColor = "rgb(163, 15, 15)";
         document.getElementById("message").innerHTML = "Wait for green";
         game.isRunning = true;
-        window.setTimeout(function () {
+        game.timeout = window.setTimeout(function () {
             document.body.style.backgroundColor = "rgb(46, 201, 64)";
             game.startTime = performance.now();
-            console.log(performance.now() - Date.now())
+            document.getElementById("message").innerHTML = "Click now!";
             game.waitingForClick = true;
-        }, game.timeout);
+        }, game.getRandomInt(1000, 5000));
     }
 
     clickedTooEarly() {
+        clearTimeout(game.timeout);
         document.getElementById("message").innerHTML = "Too early";
         document.body.style.backgroundColor = "rgb(255, 247, 25)";
         game.isRunning = false;
@@ -49,7 +49,7 @@ class Game {
         game.endTime = performance.now();
         game.result = game.endTime - game.startTime;
         document.body.style.backgroundColor = "rgb(80, 162, 235)";
-        document.getElementById("message").innerHTML = game.result + "ms";
+        document.getElementById("message").innerHTML = Math.round(game.result) + "ms";
         game.isRunning = false;
         game.waitingForClick = false;
     }
