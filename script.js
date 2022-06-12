@@ -32,9 +32,9 @@ class Game {
         game.isRunning = true;
         game.timeout = window.setTimeout(function () {
             document.body.style.backgroundColor = "rgb(46, 201, 64)";
-            game.startTime = performance.now();
             document.getElementById("message").innerHTML = "Click now!";
             game.waitingForClick = true;
+            game.startTime = performance.now();
         }, game.getRandomInt(1000, 5000));
     }
 
@@ -47,6 +47,7 @@ class Game {
 
     finishedTest() {
         game.endTime = performance.now();
+        console.log(game.startTime, game.endTime, game.endTime - game.startTime);
         game.result = game.endTime - game.startTime;
         document.body.style.backgroundColor = "rgb(80, 162, 235)";
         document.getElementById("message").innerHTML = Math.round(game.result) + "ms";
