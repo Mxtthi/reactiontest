@@ -6,6 +6,7 @@ window.onload = function () {
 
 class Game {
     constructor() {
+
         this.isRunning = false;
         this.waitingForClick = false;
         this.startTime;
